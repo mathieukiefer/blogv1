@@ -1,0 +1,30 @@
+<%- include('partials/header'); %>
+
+
+<h1>Home</h1>
+<p> <%= text %> </p>
+
+<%  posts.forEach( (post) => {  %>
+    <div>
+        
+        <%  if (post.body.length <= 200) {  %>
+
+            <h3> <%= post.title %> </h3>
+            <p> <%= post.body %> </p>
+
+        <%  } else { let slicedBody = post.body.substring(0, 200);  %>
+
+            <h3> <%= post.title %> </h3>
+            <p> 
+                <%= slicedBody + " ..." %> 
+                <a href="/posts/<%=post._id%> ">Read More</a>
+            </p>
+
+
+        <%  }  %>
+        
+    </div>
+<%  });  %>
+
+
+<%- include('partials/footer'); %>

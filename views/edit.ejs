@@ -1,0 +1,44 @@
+<%- include('partials/header'); %>
+
+
+    <div>
+        <h1>List of Posts</h1>
+    </div>
+
+    <hr>
+<div>
+        
+        <table>
+            <tr class="title-row">
+                <td>Title</td>
+                <td>ID</td>
+                <td>Actions</td>
+            </tr>
+            
+            <%  posts.forEach( (post) => {  %>
+                <tr>
+                    <td> <%= post.title %> </td>
+                    <td> <%= post._id %> </td>
+                    <td>
+                        <a href="/posts/<%=post._id%>" class="btn btn-sm btn-info">View</a>
+                        <a href="/edit/<%=post._id%>" class="btn btn-sm btn-warning" >Edit</a>
+
+                    </td>
+                </tr>
+                <%  });  %>
+
+        </table>
+
+<hr>
+        <a href="/compose" class="new-post btn btn-primary">Compose a new Post</a>
+
+            
+
+
+ 
+        
+    </div>
+
+
+
+<%- include('partials/footer'); %>

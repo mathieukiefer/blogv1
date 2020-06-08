@@ -1,0 +1,25 @@
+<%- include('partials/header'); %>
+
+
+<h1>Edit Your Post</h1>
+<form action="/update" method="post">
+    <div class="form-group" >
+        <label for="title">Title</label>
+        <input class="form-control" type="text" name="postTitle" id="title" value="<%=post.title%>">
+    </div>
+    <div class="form-group" >
+        <label for="text">Post</label>
+        <textarea class="form-control" name="postBody" id="body" cols="30" rows="8" ><%=post.body%></textarea>
+    </div>
+    <input type="hidden" name="postId" value="<%=post._id%>">
+    <button class="btn btn-sm btn-success" type="submit" name="submit">Update this Post</button>    
+</form>
+
+    <div>
+        <form action="/delete" method="post">
+        <button class="btn btn-sm btn-danger" type="submit" name="submit" value="<%=post._id%>" >Delete this post</button>
+        </form>
+    </div>
+    
+
+<%- include('partials/footer'); %>
